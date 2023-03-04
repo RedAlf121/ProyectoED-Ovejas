@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Naruto - Afternoon of Konoha(MP3_128K).mp3-60b6ddbbe9d895d8457bc784ad892eab.mp3str"
+
+[deps]
+
+source_file="res://music/bg/Naruto - Afternoon of Konoha(MP3_128K).mp3"
+dest_files=[ "res://.import/Naruto - Afternoon of Konoha(MP3_128K).mp3-60b6ddbbe9d895d8457bc784ad892eab.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
