@@ -18,6 +18,7 @@ func do_commands():
 		emit_signal("finished")
 
 func fill_signal_list(var list:Array):
+	print(signal_queue)
 	for i in range(list.size()):
 		signal_queue.push(list[i])
 

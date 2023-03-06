@@ -22,8 +22,9 @@ func _decrement_size():
 func _increment_size():
 	_size+=1
 
-func push(data):	
+func push(data):
 	if is_empty():
+		_init()
 		_head.data = data
 		_tail = _head
 	else:
