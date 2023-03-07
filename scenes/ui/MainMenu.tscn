@@ -118,10 +118,6 @@ icon = ExtResource( 4 )
 flat = true
 expand_icon = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 396, 328 )
-current = true
-
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
 margin_left = 291.0
 margin_top = 179.0
