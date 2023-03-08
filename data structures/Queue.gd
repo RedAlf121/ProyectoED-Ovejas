@@ -43,7 +43,10 @@ func pop():
 	return data
 
 func front():
-	return _head.data
+	var data = null
+	if(!is_empty()):
+		data = _head.data
+	return data
 
 func is_empty() -> bool:
 	return _head == null or _head.data == null

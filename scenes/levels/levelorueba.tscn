@@ -118,7 +118,7 @@ position = Vector2( 170, 565 )
 
 [connection signal="item_selected" from="Canvas/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="Canvas/ItemList/Button" to="." method="finished"]
-[connection signal="pressed" from="Canvas/ItemList/Button2" to="ControlCommands" method="_on_Button2_pressed"]
+[connection signal="pressed" from="Canvas/ItemList/Button2" to="." method="start_commands"]
 [connection signal="item_selected" from="Canvas/ItemList2" to="." method="_on_ItemList2_item_selected"]
 [connection signal="pressed" from="Canvas/Button" to="." method="_on_Button_pressed"]
 [connection signal="finished" from="ControlCommands" to="." method="finished"]

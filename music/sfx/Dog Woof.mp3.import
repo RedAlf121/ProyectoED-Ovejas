@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Dog Woof.mp3-77cbfe92a4955e2570a26910df442d30.mp3str"
+
+[deps]
+
+source_file="res://music/sfx/Dog Woof.mp3"
+dest_files=[ "res://.import/Dog Woof.mp3-77cbfe92a4955e2570a26910df442d30.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

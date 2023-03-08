@@ -1,50 +1,39 @@
-extends Node2D
+class_name TestLevel extends Node2D
 
 export(String, FILE) var level_selector
 
 var list = []
-var limit = 5
+var signal_dictionary = preload("res://singletons/SignalsDictionary.gd")
+onready var item_list = $Canvas/ItemList
+onready var item_list_2 = $Canvas/ItemList2
+onready var audio_stream_player = $AudioStreamPlayer
+onready var control_commands = $ControlCommands
 
 func _ready():
+	signal_dictionary = signal_dictionary.new()
 	if(Singleton.mute == false):
-		$AudioStreamPlayer.play()
+		audio_stream_player.play()
 
 
 func _on_Button_pressed():
 	get_tree().change_scene(level_selector)
 
-func crecimiento():
-	$Canvas/ItemList2.rect_size.y = $Canvas/ItemList2.rect_size.y*2
-	limit = limit * 2
-
 func _on_ItemList_item_selected(index):
-	if($Canvas/ItemList2.get_item_count() > limit):
-		crecimiento()
-	if(index == 0):
-		$Canvas/ItemList2.add_item("Mover")
-		list.push_back("moverse")
-	if(index == 1):
-		$Canvas/ItemList2.add_item("Girar ->")
-		list.push_back("girar_der")
-	if(index == 2):
-		$Canvas/ItemList2.add_item("Girar <-")
-		list.push_back("girar_izq")
-	if(index == 3):
-		$Canvas/ItemList2.add_item("Ladrar")
-		list.push_back("ladrar")
-	
+	_add_to_second_list(index)
 
 
 func _on_ItemList2_item_selected(index):
-	$Canvas/ItemList2.remove_item(index)
+	item_list_2.remove_item(index)
 	list.pop_at(index)
 
+func _add_to_second_list(index):
+	var signal_name = signal_dictionary.get_signal(index)
+	if(signal_name != "-/"):
+		list.push_back(signal_name)
+		item_list_2.add_item(item_list.get_item_text(index),item_list.get_item_icon(index))
 
 
 
 
-func finished():
-	$Mandarina.position = $Position2D.position
-	$Mandarina.rotar = 0
-	$Mandarina.rotation_degrees = 0
-	$ControlCommands/Timer.stop()
+func start_commands():
+	control_commands.start(list)
