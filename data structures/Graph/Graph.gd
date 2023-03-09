@@ -8,10 +8,10 @@ func build_graph(tile : TileMap):
 	var matrix = tile.get_used_cells()
 	var node
 	for i in matrix:
-		print(i)
 		node = GNode.new()
-		node.build(i,false)
+		node.build(i,tile.cell_size,false)
 		_nodes.push_back(node)
+		
 	for i in _nodes.size():
 		var position = _nodes[i].get_position()
 		_add_adyacency(_nodes[i], Vector2(position.x+1,position.y), matrix)

@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "Queue",
 "language": "GDScript",
 "path": "res://data structures/Queue.gd"
+}, {
+"base": "Node2D",
+"class": "TestLevel",
+"language": "GDScript",
+"path": "res://scenes/levels/levelorueba.gd"
 } ]
 _global_script_class_icons={
 "GNode": "",
 "Graph": "",
 "LevelSelector": "",
 "MainMenu": "",
-"Queue": ""
+"Queue": "",
+"TestLevel": ""
 }
 
 [application]
