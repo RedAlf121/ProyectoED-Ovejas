@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "GNode",
+"language": "GDScript",
+"path": "res://data structures/Graph/GNode.gd"
+}, {
+"base": "Node",
+"class": "Graph",
+"language": "GDScript",
+"path": "res://data structures/Graph/Graph.gd"
+}, {
 "base": "Control",
 "class": "LevelSelector",
 "language": "GDScript",
@@ -23,24 +33,20 @@ _global_script_classes=[ {
 "class": "Queue",
 "language": "GDScript",
 "path": "res://data structures/Queue.gd"
-}, {
-"base": "Node2D",
-"class": "TestLevel",
-"language": "GDScript",
-"path": "res://scenes/levels/levelorueba.gd"
 } ]
 _global_script_class_icons={
+"GNode": "",
+"Graph": "",
 "LevelSelector": "",
 "MainMenu": "",
-"Queue": "",
-"TestLevel": ""
+"Queue": ""
 }
 
 [application]
 
 config/name="ProyectoED-Ovejas"
 run/main_scene="res://scenes/ui/MainMenu.tscn"
-boot_splash/image="res://images/bg/x1080.png"
+boot_splash/image="res://images/bg/Escena de la granja en la naturaleza con granero _ Vector Gratis.png"
 config/icon="res://images/icons/unlocked.png"
 config/macos_native_icon="res://images/icons/unlocked.png"
 config/windows_native_icon="res://images/icons/unlocked.png"
