@@ -24,9 +24,15 @@ func get_position():
 
 func get_global_position():
 	return _position*size+size/2
+ 
+func _close_obstacle(matrix):
+	#busqueda binaria para buscar el mas cercano
+	pass
 
 func be_bussy(obstacles: TileMap):
 	#Encontrar el obstaculo mas cercano
+	var matrix = obstacles.get_used_cells()
+	var position = _close_obstacle(matrix)
 	#Crear un rectangulo con la posicion real del nodo
 	#Ver si la posicion real del obstaculo se encuentra dentro del rectangulo del nodo
 	#Hacer al atributo bussy true o false segun la condicion anterior

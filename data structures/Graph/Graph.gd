@@ -30,9 +30,11 @@ func _find_node(position: Vector2):
 	var index = -1
 	var li = 0
 	var ls = _nodes.size()-1
+	var mid
+	var node_position
 	while(li <= ls and index == -1):
-		var mid = (li+ls)/2
-		var node_position = _nodes[mid].get_position()
+		mid = (li+ls)/2
+		node_position = _nodes[mid].get_position()
 		if(node_position == position):
 			index = mid
 		elif(node_position.y < position.y or (node_position.y == position.y and node_position.x < position.x)):
