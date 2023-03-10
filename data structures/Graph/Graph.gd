@@ -4,12 +4,13 @@ class_name Graph extends Node
 var _nodes : Array
 
 
-func build_graph(tile : TileMap):
+func build_graph(tile : TileMap, obstacles: TileMap):
 	var matrix = tile.get_used_cells()
 	var node
 	for i in matrix:
 		node = GNode.new()
-		node.build(i,tile.cell_size,false)
+		node.build(i,tile.cell_size)
+		node.be_bussy(obstacles)
 		_nodes.push_back(node)
 		
 	for i in _nodes.size():

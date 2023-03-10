@@ -9,11 +9,9 @@ var size #variable estatica para el tamaño
 func _init():
 	_bussy = false
 
-func build(position, new_size, object):
+func build(position, new_size):
 	set_position(position)
 	size = new_size
-	if object:
-		bussy()
 
 func add_node(node):
 	_adyacent_nodes.append(node)
@@ -27,5 +25,12 @@ func get_position():
 func get_global_position():
 	return _position*size+size/2
 
-func bussy():
-	_bussy = true
+func be_bussy(obstacles: TileMap):
+	#Encontrar el obstaculo mas cercano
+	#Crear un rectangulo con la posicion real del nodo
+	#Ver si la posicion real del obstaculo se encuentra dentro del rectangulo del nodo
+	#Hacer al atributo bussy true o false segun la condicion anterior
+	pass
+
+func is_bussy():
+	return _bussy

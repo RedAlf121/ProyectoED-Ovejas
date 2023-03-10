@@ -7,11 +7,11 @@ onready var tile_map_2 = $TileMap2
 
 
 func _ready():
-	#for i in tile_map.get_used_cells():
+	for i in tile_map.get_used_cells():
+		print(i*tile_map.cell_size)
 	#	position_2d.position = i*tile_map.cell_size+tile_map.cell_size/2
-	#	print(i)
-	#for i in tile_map_2.get_used_cells():
-	#	print(i)
+	for i in tile_map_2.get_used_cells():
+		print(i*tile_map_2.cell_size)
 	var a = Graph.new()
-	a.build_graph(tile_map)
+	a.build_graph(tile_map,tile_map_2)
 
