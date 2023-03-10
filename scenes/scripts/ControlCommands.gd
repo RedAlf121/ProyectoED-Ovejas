@@ -16,7 +16,6 @@ func do_commands():
 	if(!signal_queue.is_empty()):
 		emit_signal(signal_queue.pop())
 	else:
-		timer.stop()
 		emit_signal("finished")
 
 func fill_signal_queue(var list:Array):
