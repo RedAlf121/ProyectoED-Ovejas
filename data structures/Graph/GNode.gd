@@ -28,11 +28,23 @@ func get_global_position():
 
 func be_bussy(obstacles: TileMap):
 	var matrix = obstacles.get_used_cells()
-	var rectangle = Rect2(_position,size)
-	#Buscar el punto medio
-	#Ver si se incluye en el rectangulo
-	#Si esta antes del rectangulo recorto por el li
-	#Si esta despues del rectangulo recorto por el ls
+	var rectangle = Rect2(_position*size,size)
+	var li = 0
+	var ls = matrix.size()-1
+	while(li<=ls and !_bussy):
+		var mid = (li+ls)/2
+		#Buscar el punto medio
+		var middle_rect = Rect2(matrix[mid]*obstacles.cell_size,obstacles.cell_size)
+		#Ver si se incluye en el rectangulo
+		if(rectangle.intersects(middle_rect)):
+			_bussy = true
+		#Si esta antes del rectangulo recorto por el li
+		elif(middle_rect.position.y < rectangle.position.y or (middle_rect.position.y == rectangle.position.y and middle_rect.position.x < rectangle.position.x)):
+			li = mid+1
+		#Si esta despues del rectangulo recorto por el ls
+		else:
+			ls = mid-1
+		
 
 func is_bussy():
 	return _bussy
