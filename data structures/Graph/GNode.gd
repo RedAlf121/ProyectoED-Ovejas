@@ -31,10 +31,12 @@ func be_bussy(obstacles: TileMap):
 	var rectangle = Rect2(_position*size,size)
 	var li = 0
 	var ls = matrix.size()-1
+	var mid
+	var middle_rect
 	while(li<=ls and !_bussy):
-		var mid = (li+ls)/2
+		mid = (li+ls)/2
 		#Buscar el punto medio
-		var middle_rect = Rect2(matrix[mid]*obstacles.cell_size,obstacles.cell_size)
+		middle_rect = Rect2(matrix[mid]*obstacles.cell_size,obstacles.cell_size)
 		#Ver si se incluye en el rectangulo
 		if(rectangle.intersects(middle_rect)):
 			_bussy = true
@@ -44,7 +46,6 @@ func be_bussy(obstacles: TileMap):
 		#Si esta despues del rectangulo recorto por el ls
 		else:
 			ls = mid-1
-		
 
 func is_bussy():
 	return _bussy
