@@ -2,10 +2,11 @@ class_name Graph extends Node
 
 
 var _nodes : Array
-
+var _rectangle #este atributo es auxiliar para saber las filas y las columnas a la hora de transformar el TileMap en Grafo
 
 func build_graph(tile : TileMap, obstacles: TileMap):
 	var matrix = tile.get_used_cells()
+	_rectangle = tile.get_used_rect()
 	var cell_size = tile.cell_size
 	for i in matrix:
 		_build_node(i,cell_size,obstacles)
@@ -31,6 +32,12 @@ func _add_adyacency(node: GNode, position: Vector2):
 		node.add_node(_nodes[index])
 
 func _find_node(position: Vector2):
+	var index = -1
+	if(_rectangle.has_point(position)):
+		index = position.y * _rectangle.size.x + position.x
+	return index
+
+func _find_node_binary_search(position: Vector2):
 	var index = -1
 	var li = 0
 	var ls = _nodes.size()-1

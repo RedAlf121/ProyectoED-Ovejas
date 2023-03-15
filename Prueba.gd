@@ -8,8 +8,8 @@ onready var position_2_d_2 = $Position2D2
 
 
 func _ready():
-	#for i in tile_map.get_used_cells():
-		#print(i*tile_map.cell_size)
+	for i in tile_map.get_used_cells():
+		print(i)
 	#	position_2d.position = i*tile_map.cell_size+tile_map.cell_size/2
 	#for i in tile_map_2.get_used_cells():
 		#print(i*tile_map_2.cell_size)
