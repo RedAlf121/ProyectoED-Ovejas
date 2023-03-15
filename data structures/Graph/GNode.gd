@@ -49,3 +49,6 @@ func be_bussy(obstacles: TileMap):
 
 func is_bussy():
 	return _bussy
+
+func get_adyacent_nodes():
+	return _adyacent_nodes

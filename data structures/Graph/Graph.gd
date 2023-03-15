@@ -46,3 +46,46 @@ func _find_node(position: Vector2):
 		else:
 			ls = mid-1
 	return index
+
+func _transform(position):
+	var size = _nodes[0].size
+	return (position-size/2)/size
+
+func shortest_path(position_from, position_to):
+	var path = null
+	if !_nodes.empty():
+		var node_from_position = _find_node(_transform(position_from))
+		var node_to_position = _find_node(_transform(position_to))
+		if(node_from_position != -1 and node_to_position != -1):
+			var node_from = _nodes[node_from_position]
+			var node_to = _nodes[node_to_position]
+			path = _shortest_path(node_from, node_to)
+	return path
+
+func _shortest_path(node_from, node_to):
+	var node_map = _bfs(node_from, node_to)
+	return _path(node_map, node_to)
+
+func _path(node_map, node):
+	var path = []
+	path.push_front(node)
+	var aux_node = node
+	while(node_map.has(aux_node) and node_map[aux_node] != null):
+		path.push_front(node_map[aux_node])
+		aux_node = path[0]
+	return path
+
+func _bfs(node_from, node_to):
+	var node_map = {node_from: null}
+	var found = false
+	var queue_node = Queue.new()
+	queue_node.push(node_from)
+	while(!queue_node.is_empty() and !found):
+		var actual_node = queue_node.pop()
+		for i in actual_node.get_adyacent_nodes():
+			if(!i.is_bussy() and !node_map.has(i)):
+				if(i == node_to): 
+					found = true
+				queue_node.push(i)
+				node_map[i] = actual_node
+	return node_map
