@@ -15,8 +15,7 @@ func build_graph(tile : TileMap, obstacles: TileMap):
 func _build_node(position,size,obstacles):
 		var node = GNode.new()
 		node.build(position,size)
-		node.be_bussy(obstacles)
-		if(!node.is_bussy()):
+		if(!node.is_bussy(obstacles)):
 			_nodes[node.get_position()] = node
 
 
