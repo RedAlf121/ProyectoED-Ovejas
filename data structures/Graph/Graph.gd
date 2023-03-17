@@ -16,7 +16,8 @@ func _build_node(position,size,obstacles):
 		var node = GNode.new()
 		node.build(position,size)
 		node.be_bussy(obstacles)
-		_nodes[node.get_position()] = node
+		if(!node.is_bussy()):
+			_nodes[node.get_position()] = node
 
 
 func _connect_nodes():
@@ -74,7 +75,7 @@ func _bfs(node_from, node_to):
 	while(!queue_node.is_empty() and !found):
 		var actual_node = queue_node.pop()
 		for i in actual_node.get_adyacent_nodes():
-			if(!i.is_bussy() and !node_map.has(i)):
+			if(!node_map.has(i)):
 				if(i == node_to): 
 					found = true
 				queue_node.push(i)

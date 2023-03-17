@@ -36,15 +36,14 @@ func push(data):
 
 
 func pop():
-	var data
-	data = _head.data
+	var data = self.front()
 	_head = _head.next
 	_decrement_size()
 	return data
 
 func front():
 	var data = null
-	if(!is_empty()):
+	if(!self.is_empty()):
 		data = _head.data
 	return data
 
