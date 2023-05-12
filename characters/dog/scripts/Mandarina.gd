@@ -3,25 +3,27 @@ extends KinematicBody2D
 signal woof
 
 signal stop_barking
-var velocity = Vector2(0,-1)
+var direction = Vector2(0,-1)
 export(float)var speed = 500
 export (float) var rotar = 0.0
+export (float) var tween_time = 0.37
 
-func _ready():
-	pass
-
-func mover():	
+func mover():
 	if(rotar == 0):
-		velocity = Vector2(0,-1)
+		direction = Vector2(0,-1)
 	if(rotar == 90):
-		velocity = Vector2(1,0)
+		direction = Vector2(1,0)
 	if(rotar == 180):
-		velocity = Vector2(0,1)
+		direction = Vector2(0,1)
 	if(rotar == 270):
-		velocity = Vector2(-1,0)	
-	move_and_slide(velocity*speed)
+		direction = Vector2(-1,0)
+	var final_position = position+direction*speed
+		#detectar colisiones
+	while(position != final_position):
+		position+=direction
+		yield(get_tree().create_timer(tween_time),"timeout")
 
-func girar_izq():	
+func girar_izq():
 	rotar-=90
 	if(rotar>=360):
 		rotar-=360

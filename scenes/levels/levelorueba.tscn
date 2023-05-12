@@ -111,7 +111,8 @@ stream = ExtResource( 9 )
 
 [node name="Mandarina" parent="." instance=ExtResource( 4 )]
 position = Vector2( 169, 565 )
-speed = 3000.0
+speed = 64.0
+tween_time = 0.001
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 170, 565 )
