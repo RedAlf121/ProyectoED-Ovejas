@@ -1,0 +1,77 @@
+2a60927148abd1d33b818b535e306557
+::res://::1683915030
+default_env.tres::Environment::8066029708602782942::1679426197::0::1::::<><>::
+icon.png::CompressedTexture2D::276348941129907581::1678332240::1679426116::1::::<><>::
+Node.tscn::PackedScene::-1::1679426072::0::1::::<><>::res://Prueba.gd<>res://tiles/Summer-Farm-Top-Down-2D-Game-Tileset2-720x480.jpg<>res://icon.png<>res://tiles/TX Village Props.png<>res://characters/sheep/Sheep.tscn
+Prueba.gd::GDScript::-1::1679426072::0::1::::<>Node<>::
+::res://characters/::1678332331
+::res://characters/dog/::1678332331
+Dog.tscn::PackedScene::-1::1679426072::0::1::::<><>::res://scenes/ControlCommands.tscn<>res://characters/dog/Mandarina.tscn<>res://characters/dog/scripts/Dog.gd
+Mandarina.tscn::PackedScene::-1::1679426072::0::1::::<><>::res://characters/dog/sprites/Perro_low.png<>res://characters/dog/scripts/Mandarina.gd<>res://music/sfx/Dog Woof.mp3
+::res://characters/dog/scripts/::1678332331
+Mandarina.gd::GDScript::-1::1679426072::0::1::::<>CharacterBody2D<>::
+::res://characters/dog/sprites/::1679426118
+Perro_low.png::CompressedTexture2D::6981212131858865101::1678332240::1679426118::1::::<><>::
+::res://characters/sheep/::1679083779
+Sheep.tscn::PackedScene::-1::1679426072::0::1::::<><>::res://characters/sheep/sprites/oveja topdown.png<>res://characters/sheep/scripts/Sheep.gd
+::res://characters/sheep/scripts/::1679083299
+Sheep.gd::GDScript::-1::1679426072::0::1::::Sheep<>CharacterBody2D<>::
+::res://characters/sheep/sprites/::1679426118
+oveja topdown.png::CompressedTexture2D::4440943368872379590::1678332240::1679426118::1::::<><>::
+::res://data structures/::1678463128
+Queue.gd::GDScript::-1::1679426072::0::1::::Queue<>Node2D<>::
+::res://data structures/Graph/::1678463128
+GNode.gd::GDScript::-1::1679426072::0::1::::GNode<>Node<>::
+Graph.gd::GDScript::-1::1679426072::0::1::::Graph<>Node<>::
+::res://fonts/::1679426115
+Stabillo Medium.ttf::FontFile::7951597514186473520::1678332240::1679426115::1::::<><>::
+::res://fonts/karmatic-arcade/::1679426115
+ka1.ttf::FontFile::3377045242204679709::1678332240::1679426115::1::::<><>::
+::res://images/::1678332331
+::res://images/bg/::1679426118
+Escena de la granja en la naturaleza con granero _ Vector Gratis.jpg::CompressedTexture2D::2268204519685856211::1678332240::1679426118::1::::<><>::
+Escena de la granja en la naturaleza con granero _ Vector Gratis.png::CompressedTexture2D::7004954745518916846::1678332240::1679426118::1::::<><>::
+level selector.jpg::CompressedTexture2D::7522651009816423106::1678332240::1679426118::1::::<><>::
+main menu.jpg::CompressedTexture2D::5725891596968552717::1678332240::1679426118::1::::<><>::
+::res://images/icons/::1679426117
+boton atras 1.png::CompressedTexture2D::6559475229380296427::1678332240::1679426117::1::::<><>::
+boton atras 2.png::CompressedTexture2D::3029329816717165504::1678332240::1679426117::1::::<><>::
+granjero.png::CompressedTexture2D::3630218257107771245::1678332240::1679426117::1::::<><>::
+locked.png::CompressedTexture2D::2133863829432694795::1678332240::1679426117::1::::<><>::
+oveja lateral.png::CompressedTexture2D::4846402012918098576::1678332240::1679426117::1::::<><>::
+salir.png::CompressedTexture2D::5943877026357402588::1678332240::1679426117::1::::<><>::
+settings (1).png::CompressedTexture2D::3863669764978355804::1678332240::1679426117::1::::<><>::
+silbato ejecutar.png::CompressedTexture2D::7018200391891038375::1678332240::1679426117::1::::<><>::
+silbato parar.png::CompressedTexture2D::821722611247667683::1678332240::1679426117::1::::<><>::
+unlocked.png::CompressedTexture2D::2435694089363759527::1678332240::1679426117::1::::<><>::
+::res://music/::1678332332
+::res://music/bg/::1679426116
+Naruto - Afternoon of Konoha(MP3_128K).mp3::AudioStreamMP3::6734385119748261758::1678332240::1679426116::1::::<><>::
+Naruto - Konohamaru_s Theme(MP3_128K).mp3::AudioStreamMP3::7479574426946772614::1678332240::1679426116::1::::<><>::
+Naruto Soundtrack -  Fooling Mode(MP3_128K).mp3::AudioStreamMP3::4446581553466976325::1678332240::1679426116::1::::<><>::
+::res://music/sfx/::1679426116
+Dog Woof.mp3::AudioStreamMP3::6539316234185295832::1678332240::1679426116::1::::<><>::
+::res://scenes/::1678332332
+ControlCommands.tscn::PackedScene::-1::1679426072::0::1::::<><>::res://scenes/scripts/ControlCommands.gd
+::res://scenes/levels/::1679426279
+levelorueba.gd::GDScript::-1::1679426279::0::1::::TestLevel<>Node2D<>::
+levelorueba.tscn::PackedScene::1043221217318817368::1679426197::0::1::::<><>::uid://b4jhxn4bygaje<>res://tiles/TileMap.tscn<>res://tiles/Relleno.tscn<>res://characters/dog/Mandarina.tscn<>uid://lybwe70hu5b0<>res://scenes/levels/levelorueba.gd<>uid://c68wy80xixeyp<>uid://c0ppumcnb0c00<>uid://b4l7swdq6yji8<>uid://dlj2wcux73gke<>res://scenes/ControlCommands.tscn
+::res://scenes/scripts/::1678332332
+CheckBox.gd::GDScript::-1::1679426072::0::1::::<>CheckBox<>::
+ControlCommands.gd::GDScript::-1::1679426072::0::1::::<>Node<>::
+Level_Selector.gd::GDScript::-1::1679426072::0::1::::LevelSelector<>Control<>::
+MainMenu.gd::GDScript::-1::1679426072::0::1::::MainMenu<>Control<>::
+::res://scenes/ui/::1679083778
+Level_Selector.tscn::PackedScene::-1::1679426072::0::1::::<><>::res://images/icons/pngwing.com (3).png<>res://images/icons/pngwing.com (3) - copia.png<>res://images/icons/pngwing.com (6).png<>res://images/bg/level selector.jpg<>res://scenes/scripts/Level_Selector.gd<>res://music/bg/Naruto - Konohamaru_s Theme(MP3_128K).mp3<>res://fonts/Stabillo Medium.ttf<>res://images/icons/pngwing.com (1).png
+MainMenu.tscn::PackedScene::-1::1679426072::0::1::::<><>::res://images/icons/granjero.png<>res://images/icons/salir.png<>res://images/bg/IMG-20221027-WA0293.jpg<>res://fonts/Stabillo Medium.ttf<>res://scenes/ui/Level_Selector.tscn<>res://scenes/scripts/MainMenu.gd<>res://images/icons/oveja lateral.png<>res://music/bg/Naruto - Afternoon of Konoha(MP3_128K).mp3<>res://scenes/scripts/CheckBox.gd
+::res://singletons/::1678332332
+SignalsDictionary.gd::GDScript::-1::1679426072::0::1::::<>Node<>::
+Singleton.gd::GDScript::-1::1679426072::0::1::::<>Node<>::
+::res://tiles/::1679426117
+Rays.png::CompressedTexture2D::499494301839797931::1678463851::1679426117::1::::<><>::
+Rayza.png::CompressedTexture2D::7105781130757500621::1678470814::1679426117::1::::<><>::
+Relleno.tscn::PackedScene::-1::1679426072::0::1::::<><>::res://tiles/TX Village Props.png
+Summer-Farm-Top-Down-2D-Game-Tileset2-720x480.jpg::CompressedTexture2D::1784872844594843804::1678332240::1679426117::1::::<><>::
+TileMap.tscn::PackedScene::-1::1679426072::0::1::::<><>::
+TX Tileset Grass.png::CompressedTexture2D::1788457005289039429::1678464000::1679426117::1::::<><>::
+TX Village Props.png::CompressedTexture2D::8824240485650060794::1678332240::1679426117::1::::<><>::
