@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
 signal woof
-
+signal calm_sheeps
 signal stop_barking
+
 var direction = Vector2(0,-1)
 export(float)var speed = 500
 export (float) var rotar = 0.0
@@ -38,6 +39,7 @@ func girar_der():
 	rotation_degrees = rotar
 
 func ladrar():
+	emit_signal("calm_sheeps")
 	emit_signal("woof")
 	$AudioStreamPlayer.play()
 	$AudioStreamPlayer/Timer.start()

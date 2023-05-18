@@ -34,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://data structures/Queue.gd"
 }, {
-"base": "CharacterBody2D",
+"base": "KinematicBody2D",
 "class": "Sheep",
 "language": "GDScript",
 "path": "res://characters/sheep/scripts/Sheep.gd"
@@ -72,6 +72,7 @@ SignalsDictionary="*res://singletons/SignalsDictionary.gd"
 
 window/size/width=800
 window/stretch/mode="2d"
+window/stretch/aspect="keep_width"
 
 [gui]
 

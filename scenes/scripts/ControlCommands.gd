@@ -13,8 +13,11 @@ onready var timer = $Timer
 
 func do_commands():
 	print(signal_queue.front())
+	timer.stop()
 	if(!signal_queue.is_empty()):
 		emit_signal(signal_queue.pop())
+		yield(get_tree().create_timer(1.0), "timeout")
+		timer.start()
 	else:
 		emit_signal("finished")
 
