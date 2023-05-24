@@ -16,6 +16,7 @@ onready var tile_map = $Floor
 onready var tile_map_2 = $TileMap
 onready var position_2_d_2 = $Destino
 onready var a = Graph.new()
+onready var Counter = 0
 #--------------------------------------------------------------------------------------------
 func _ready():
 	signal_dictionary = signal_dictionary.new()
@@ -39,13 +40,9 @@ func _add_to_second_list(index):
 
 
 func start_commands():
-	standby_sheeps()
 	control_commands.start(list)
 
-func standby_sheeps():
-	for i in get_children():
-		if(i.is_in_group("sheep")):
-			i.standby=true
+
 
 func _on_Atras_pressed():
 	get_tree().change_scene(level_selector)
@@ -65,8 +62,7 @@ func _on_CommandShower_item_selected(index):
 
 func _on_Sheep_run(sheep,final_position):
 	connect("finished",sheep,"restart_timer")
-	#sheep.timer.stop()
-	sheep.collision_shape_move_detector.disabled = true
+	final_position = Vector2(int(final_position.x), int(final_position.y))
 	var path = a.shortest_path(sheep.position, final_position)
 	var tween_time = 0.37
 	yield(get_tree().create_timer(tween_time),"timeout")
@@ -97,3 +93,11 @@ func _on_Sheep_run(sheep,final_position):
 
 func _on_Sheep_stop_moving():
 	stop = true
+
+
+func _on_ENDZONE_body_entered(body):
+	Counter+=1
+	print(Counter)
+	if Counter == 3:
+		get_tree().change_scene("res://scenes/levels/Felicidades.tscn")
+	pass # Replace with function body.

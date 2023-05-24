@@ -25,8 +25,6 @@ texture = ExtResource( 1 )
 position = Vector2( -3, 0 )
 shape = SubResource( 1 )
 
-[node name="Position2D" type="Position2D" parent="."]
-
 [node name="DogDetector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DogDetector"]
@@ -39,10 +37,8 @@ shape = SubResource( 3 )
 position = Vector2( -1.5, 0 )
 shape = SubResource( 4 )
 
-[node name="Timer" type="Timer" parent="."]
-
 [connection signal="body_entered" from="DogDetector" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="DogDetector" to="." method="_on_Area2D_body_exited"]
+[connection signal="area_entered" from="MoveDetector" to="." method="_on_MoveDetector_area_entered"]
 [connection signal="body_entered" from="MoveDetector" to="." method="_on_MoveDetector_body_entered"]
 [connection signal="body_exited" from="MoveDetector" to="." method="_on_MoveDetector_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
