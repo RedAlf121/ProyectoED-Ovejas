@@ -1,27 +1,29 @@
 extends KinematicBody2D
 
 signal woof
-
 signal stop_barking
+
 var direction = Vector2(0,-1)
 export(float)var speed = 500
 export (float) var rotar = 0.0
 export (float) var tween_time = 0.37
+onready var stop = false
 
 func mover():
-	if(rotar == 0):
-		direction = Vector2(0,-1)
-	if(rotar == 90):
-		direction = Vector2(1,0)
-	if(rotar == 180):
-		direction = Vector2(0,1)
-	if(rotar == 270):
-		direction = Vector2(-1,0)
-	var final_position = position+direction*speed
-		#detectar colisiones
-	while(position != final_position):
-		position+=direction
-		yield(get_tree().create_timer(tween_time),"timeout")
+	if !stop:
+		if(rotar == 0):
+			direction = Vector2(0,-1)
+		if(rotar == 90):
+			direction = Vector2(1,0)
+		if(rotar == 180):
+			direction = Vector2(0,1)
+		if(rotar == 270):
+			direction = Vector2(-1,0)
+		var final_position = position+direction*speed
+			#detectar colisiones
+		while(position != final_position):
+			position+=direction
+			yield(get_tree().create_timer(tween_time),"timeout")
 
 func girar_izq():
 	rotar-=90
@@ -54,3 +56,13 @@ func _on_Timer_timeout():
 
 func _on_Timer2_timeout():
 	emit_signal("stop_barking")
+
+
+func _on_Area2D_body_entered(body):
+	stop = true
+	pass # Replace with function body.
+
+
+func _on_Area2D_body_exited(body):
+	stop = false
+	pass # Replace with function body.
