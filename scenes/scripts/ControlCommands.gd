@@ -12,7 +12,6 @@ onready var signal_queue = Queue.new()
 onready var timer = $Timer
 
 func do_commands():
-	print(signal_queue.front())
 	timer.stop()
 	if(!signal_queue.is_empty()):
 		emit_signal(signal_queue.pop())

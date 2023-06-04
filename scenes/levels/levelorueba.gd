@@ -6,7 +6,6 @@ signal finished
 
 var list = []
 var signal_dictionary = preload("res://singletons/SignalsDictionary.gd")
-var stop = false
 onready var item_list = $Canvas/ItemList
 onready var item_list_2 = $Canvas/CommandShower
 onready var audio_stream_player = $AudioStreamPlayer
@@ -61,38 +60,12 @@ func _on_CommandShower_item_selected(index):
 
 
 func _on_Sheep_run(sheep,final_position):
-	connect("finished",sheep,"restart_timer")
-	final_position = Vector2(int(final_position.x), int(final_position.y))
-	var path = a.shortest_path(sheep.position, final_position)
-	var tween_time = 0.37
-	yield(get_tree().create_timer(tween_time),"timeout")
-	if(path!=null):
-		var it = 0
-		while(it < path.size() and !stop):
-			var i = path[it]
-			print(sheep.position)
-			var direction = Vector2(sign(int(sheep.position.x - i.get_global_position().x)),sign(int(sheep.position.y - i.get_global_position().y)))
-			direction = direction.normalized()
-			match(direction):
-				Vector2.LEFT:
-					sheep.rotation_degrees = 0
-				Vector2.RIGHT:
-					sheep.rotation_degrees = 180
-				Vector2.UP:
-					sheep.rotation_degrees = 90
-				Vector2.DOWN:
-					sheep.rotation_degrees = 270
-			var tween = get_tree().create_tween()
-			tween.tween_property(sheep,"position", i.get_global_position(), tween_time)
-			yield(get_tree().create_timer(tween_time),"timeout")
-			it+=1
-		emit_signal("finished",path==null)
-		disconnect("finished",sheep,"restart_timer")
-		stop = false
+	if(sheep.stop):
+		final_position = Vector2(int(final_position.x), int(final_position.y))
+		var path = a.shortest_path(sheep.position, final_position)
+		sheep.path = path
+		sheep.timer.start()
 
-
-func _on_Sheep_stop_moving():
-	stop = true
 
 
 func _on_ENDZONE_body_entered(body):
@@ -101,3 +74,5 @@ func _on_ENDZONE_body_entered(body):
 	if Counter == 3:
 		get_tree().change_scene("res://scenes/levels/Felicidades.tscn")
 	pass # Replace with function body.
+
+

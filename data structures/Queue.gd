@@ -52,3 +52,8 @@ func is_empty() -> bool:
 
 func size() -> int:
 	return _size
+
+func clear() -> void:
+	_head = null
+	_tail = null
+	_size = 0
