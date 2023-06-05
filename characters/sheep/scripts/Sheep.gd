@@ -3,6 +3,7 @@ class_name Sheep extends KinematicBody2D
 signal run
 
 export(float) var speed
+export(Vector2) var direction
 onready var move_detector = $MoveDetector
 onready var sheep_detector = $SheepDetector
 onready var collision_shape_move_detector = $MoveDetector/CollisionShape2D
@@ -14,35 +15,46 @@ onready var timer = $Timer
 onready var endzone = false#para que detecte la meta una unica vez debido a que la componente de move_detector se reutiliza
 var next
 var previous
+onready var ani = $AnimationPlayer
 
 var previous_rotation
 var tween_time = 0.37
-var direction
 var path
 func _ready():
 	direction_by_rotation()
 
+
 func rotation_by_direction():
 	match(direction):
 		Vector2.LEFT:
-			rotation_degrees = 0
+			ani.play("LeftWalk")
+			#rotation_degrees = 0
 		Vector2.RIGHT:
-			rotation_degrees = 180
+			ani.play("RightWalk")
+			#rotation_degrees = 180
 		Vector2.UP:
-			rotation_degrees = 90
+			ani.play("UpWalk")
+			#rotation_degrees = 90
 		Vector2.DOWN:
-			rotation_degrees = 270
+			ani.play("DownWalk")
+			#rotation_degrees = 270
+	sheep_detector.position = direction*speed/2
 
 func direction_by_rotation():
-	match(round(rotation_degrees)):
-		0.0:
-			direction = Vector2.RIGHT
-		180.0:
-			direction = Vector2.LEFT
-		90.0:
-			direction = Vector2.DOWN
-		270.0:
-			direction = Vector2.UP
+	match(direction):
+		Vector2.LEFT:
+			ani.play("LeftIdle")
+			#rotation_degrees = 0
+		Vector2.RIGHT:
+			ani.play("RightIdle")
+			#rotation_degrees = 180
+		Vector2.UP:
+			ani.play("UpIdle")
+			#rotation_degrees = 90
+		Vector2.DOWN:
+			ani.play("DownIdle")
+			#rotation_degrees = 270
+	sheep_detector.position = direction*speed/2
 
 func start_move():
 	if(next == null):
@@ -118,10 +130,10 @@ func follow_path():
 	var tween_time = 0.37
 	if(path!=null):
 		if(!path.empty()):
-			print(path)
 			var i = path.pop_front()
 			var direction = Vector2(sign(int(position.x - i.get_global_position().x)),sign(int(position.y - i.get_global_position().y)))
-			direction = direction.normalized()
+			direction = direction.normalized()*-1
+			print(direction)
 			self.direction = direction
 			rotation_by_direction()
 			var tween = get_tree().create_tween()
@@ -151,7 +163,9 @@ func _on_MoveDetector_body_entered(body):
 	if(body == self):
 		reverse = false
 		sheep_detector.monitoring = false
-		rotation_degrees = next.rotation_degrees if next != null else rotation_degrees
+		direction = next.direction if next != null else direction
 		direction_by_rotation()
+		#rotation_degrees = next.rotation_degrees if next != null else rotation_degrees
+		#direction_by_rotation()
 
 
