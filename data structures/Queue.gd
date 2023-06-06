@@ -34,6 +34,9 @@ func push(data):
 		_tail = new_node
 	_increment_size()
 
+func push_all(data):
+	for i in data:
+		push(i)
 
 func pop():
 	var data = self.front()

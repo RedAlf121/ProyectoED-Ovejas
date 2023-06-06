@@ -126,6 +126,7 @@ position = Vector2( 544, 608 )
 direction = Vector2( 0, -1 )
 
 [node name="ENDZONE" parent="." instance=ExtResource( 16 )]
+position = Vector2( 638, 160 )
 
 [node name="dianoche" parent="." instance=ExtResource( 14 )]
 time = [ 9, 30, 0 ]

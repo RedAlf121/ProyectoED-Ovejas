@@ -10,19 +10,24 @@ onready var item_list = $Canvas/ItemList
 onready var item_list_2 = $Canvas/CommandShower
 onready var audio_stream_player = $AudioStreamPlayer
 onready var control_commands = $ControlCommands
-#----------------------------------------------Zero------------------------------------------
 onready var tile_map = $Floor
 onready var tile_map_2 = $TileMap
 onready var position_2_d_2 = $Destino
 onready var a = Graph.new()
-onready var Counter = 0
+onready var counter = 0
+onready var max_sheeps = 0 
 #--------------------------------------------------------------------------------------------
 func _ready():
 	signal_dictionary = signal_dictionary.new()
 	if(Singleton.mute == false):
 		audio_stream_player.play()
-#---------------------------------------------Zero--------------------------------------------
+	count_sheeps()
 	a.build_graph(tile_map,tile_map_2)
+
+func count_sheeps():
+	for i in get_children():
+		if(i.is_in_group("sheep")):
+			max_sheeps+=1
 
 func _on_ItemList_item_selected(index):
 	_add_to_second_list(index)
@@ -45,12 +50,10 @@ func start_commands():
 
 func _on_Atras_pressed():
 	get_tree().change_scene(level_selector)
-	pass # Replace with function body.
 
 
 func _on_Reset_pressed():
-	get_tree().change_scene("res://scenes/levels/levelorueba.tscn")
-	pass # Replace with function body.
+	get_tree().change_scene(filename)
 
 
 func _on_CommandShower_item_selected(index):
@@ -69,8 +72,8 @@ func _on_Sheep_run(sheep,final_position):
 
 
 func _on_ENDZONE_body_entered(body):
-	Counter+=1
-	if Counter == 3:
-		get_tree().change_scene("res://scenes/levels/Felicidades.tscn")
+	counter+=1
+	if counter == max_sheeps:
+		LoadSave.level_win()
 
 

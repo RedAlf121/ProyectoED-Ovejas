@@ -134,6 +134,7 @@ config/windows_native_icon="res://images/icons/unlocked.png"
 Singleton="*res://singletons/Singleton.gd"
 SignalsDictionary="*res://singletons/SignalsDictionary.gd"
 AnimationManager="*res://singletons/AnimationManager.gd"
+LoadSave="*res://singletons/Load_Save.gd"
 
 [display]
 
