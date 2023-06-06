@@ -21,39 +21,15 @@ var previous_rotation
 var tween_time = 0.37
 var path
 func _ready():
-	direction_by_rotation()
+	idle_animation()
 
 
-func rotation_by_direction():
-	match(direction):
-		Vector2.LEFT:
-			ani.play("LeftWalk")
-			#rotation_degrees = 0
-		Vector2.RIGHT:
-			ani.play("RightWalk")
-			#rotation_degrees = 180
-		Vector2.UP:
-			ani.play("UpWalk")
-			#rotation_degrees = 90
-		Vector2.DOWN:
-			ani.play("DownWalk")
-			#rotation_degrees = 270
+func walk_animation():
+	AnimationManager.animation_parameters(direction,[Vector2.LEFT,Vector2.RIGHT,Vector2.UP,Vector2.DOWN],["LeftWalk","RightWalk","UpWalk","DownWalk"],ani)
 	sheep_detector.position = direction*speed/2
 
-func direction_by_rotation():
-	match(direction):
-		Vector2.LEFT:
-			ani.play("LeftIdle")
-			#rotation_degrees = 0
-		Vector2.RIGHT:
-			ani.play("RightIdle")
-			#rotation_degrees = 180
-		Vector2.UP:
-			ani.play("UpIdle")
-			#rotation_degrees = 90
-		Vector2.DOWN:
-			ani.play("DownIdle")
-			#rotation_degrees = 270
+func idle_animation():
+	AnimationManager.animation_parameters(direction,[Vector2.LEFT,Vector2.RIGHT,Vector2.UP,Vector2.DOWN],["LeftIdle","RightIdle","UpIdle","DownIdle"],ani)
 	sheep_detector.position = direction*speed/2
 
 func start_move():
@@ -133,9 +109,8 @@ func follow_path():
 			var i = path.pop_front()
 			var direction = Vector2(sign(int(position.x - i.get_global_position().x)),sign(int(position.y - i.get_global_position().y)))
 			direction = direction.normalized()*-1
-			print(direction)
 			self.direction = direction
-			rotation_by_direction()
+			walk_animation()
 			var tween = get_tree().create_tween()
 			tween.tween_property(self,"position", i.get_global_position(), tween_time)
 			yield(get_tree().create_timer(tween_time),"timeout")
@@ -164,8 +139,6 @@ func _on_MoveDetector_body_entered(body):
 		reverse = false
 		sheep_detector.monitoring = false
 		direction = next.direction if next != null else direction
-		direction_by_rotation()
-		#rotation_degrees = next.rotation_degrees if next != null else rotation_degrees
-		#direction_by_rotation()
+		idle_animation()
 
 

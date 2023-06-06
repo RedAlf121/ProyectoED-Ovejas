@@ -70,9 +70,7 @@ func _on_Sheep_run(sheep,final_position):
 
 func _on_ENDZONE_body_entered(body):
 	Counter+=1
-	print(Counter)
 	if Counter == 3:
 		get_tree().change_scene("res://scenes/levels/Felicidades.tscn")
-	pass # Replace with function body.
 
 

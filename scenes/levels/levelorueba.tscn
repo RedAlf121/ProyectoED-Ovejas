@@ -15,6 +15,7 @@
 [ext_resource path="res://characters/sheep/Sheep.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/dianoche.tscn" type="PackedScene" id=14]
 [ext_resource path="res://tiles/Falling Leaves.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/ENDZONE.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 outline_size = 1
@@ -25,9 +26,6 @@ font_data = ExtResource( 10 )
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 10 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 249, 154.75 )
 
 [node name="level1prueba" type="Node2D"]
 script = ExtResource( 6 )
@@ -106,6 +104,7 @@ flat = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -80.0
 
 [node name="ControlCommands" parent="." instance=ExtResource( 11 )]
 
@@ -126,11 +125,7 @@ direction = Vector2( 0, -1 )
 position = Vector2( 544, 608 )
 direction = Vector2( 0, -1 )
 
-[node name="ENDZONE" type="Area2D" parent="." groups=["endzone"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ENDZONE"]
-position = Vector2( 640, 158.25 )
-shape = SubResource( 3 )
+[node name="ENDZONE" parent="." instance=ExtResource( 16 )]
 
 [node name="dianoche" parent="." instance=ExtResource( 14 )]
 time = [ 9, 30, 0 ]

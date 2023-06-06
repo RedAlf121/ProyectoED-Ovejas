@@ -9,12 +9,13 @@ export(float)var speed = 500
 export (float) var rotar = 0.0
 export (float) var tween_time = 0.37
 onready var stop = false
-
+onready var size = 64
 
 onready var collision_detector = $Area2D
 func _ready():
 	direction_by_rotation()
 	idle_movement()
+
 func mover():
 	if !stop:
 		direction_by_rotation()
@@ -25,38 +26,21 @@ func mover():
 			yield(get_tree().create_timer(tween_time),"timeout")
 		idle_movement()
 
+
+
 func direction_by_rotation():
-	if(rotar == 0):
-		direction = Vector2(0,-1)
-	elif(rotar == 90):
-		direction = Vector2(1,0)
-	elif(rotar == 180):
-		direction = Vector2(0,1)
-	elif(rotar == 270):
-			direction = Vector2(-1,0)
-	$Area2D.position = 64*direction
+	direction = AnimationManager.selection_cases(rotar,[0,90,180,270],[Vector2(0,-1),Vector2(1,0),Vector2(0,1),Vector2(-1,0)])
+	if(direction != null):
+		$Area2D.position = size*direction
+
 func motion_movement():
-	match(direction):
-		Vector2.UP:
-			ani.play("UpWalk")
-		Vector2.RIGHT:
-			ani.play("RightWalk")
-		Vector2.DOWN:
-			ani.play("DownWalk")
-		Vector2.LEFT:
-			ani.play("LeftWalk")
-			
+	AnimationManager.animation_parameters(direction,[Vector2.UP,Vector2.RIGHT,Vector2.DOWN,Vector2.LEFT],["UpWalk","RightWalk","DownWalk","LeftWalk"],ani)
+
+
 func idle_movement():
-	if(rotar == 0):
-			$AnimationPlayer.play("UpIdle")
-	if(rotar == 90):
-		$AnimationPlayer.play("RightIdle")
-	if(rotar == 180):
-		$AnimationPlayer.play("DownIdle")
-	if(rotar == 270):
-		$AnimationPlayer.play("LeftIdle")
-			
-	
+	AnimationManager.animation_parameters(rotar,[0,90,180,270],["UpIdle","RightIdle","DownIdle","LeftIdle"],ani)
+
+
 func girar_izq():
 	rotar-=90
 	if(rotar>=360):
@@ -81,14 +65,7 @@ func ladrar():
 	woof()
 	
 func woof():
-	if(rotar == 0):
-		$AnimationPlayer.play("UpWoof")
-	if(rotar == 90):
-		$AnimationPlayer.play("RightWoof")
-	if(rotar == 180):
-		$AnimationPlayer.play("DownWoof")
-	if(rotar == 270):
-		$AnimationPlayer.play("LeftWoof")
+	AnimationManager.animation_parameters(rotar,[0,90,180,270],["UpWoof","RightWoof","DownWoof","LeftWoof"],ani)
 
 
 
@@ -96,14 +73,7 @@ func woof():
 
 func _on_Timer_timeout():
 	$AudioStreamPlayer.stop()
-	if(rotar == 0):
-		$AnimationPlayer.play("UpIdle")
-	if(rotar == 90):
-		$AnimationPlayer.play("RightIdle")
-	if(rotar == 180):
-		$AnimationPlayer.play("DownIdle")
-	if(rotar == 270):
-		$AnimationPlayer.play("LeftIdle")
+	idle_movement()
 
 
 func _on_Timer2_timeout():
