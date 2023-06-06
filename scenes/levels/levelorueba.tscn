@@ -11,7 +11,7 @@
 [ext_resource path="res://music/bg/Naruto Soundtrack -  Fooling Mode(MP3_128K).mp3" type="AudioStream" id=9]
 [ext_resource path="res://fonts/Stabillo Medium.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://scenes/ControlCommands.tscn" type="PackedScene" id=11]
-[ext_resource path="res://icon.png" type="Texture" id=12]
+[ext_resource path="res://tiles/Falling Leaves.gd" type="Script" id=12]
 [ext_resource path="res://characters/sheep/Sheep.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/dianoche.tscn" type="PackedScene" id=14]
 [ext_resource path="res://tiles/Falling Leaves.tscn" type="PackedScene" id=15]
@@ -126,11 +126,6 @@ direction = Vector2( 0, -1 )
 position = Vector2( 544, 608 )
 direction = Vector2( 0, -1 )
 
-[node name="Destino" type="Position2D" parent="."]
-
-[node name="Sprite" type="Sprite" parent="Destino"]
-texture = ExtResource( 12 )
-
 [node name="ENDZONE" type="Area2D" parent="." groups=["endzone"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ENDZONE"]
@@ -138,12 +133,12 @@ position = Vector2( 640, 158.25 )
 shape = SubResource( 3 )
 
 [node name="dianoche" parent="." instance=ExtResource( 14 )]
-visible = false
 time = [ 9, 30, 0 ]
-balance = 10.0
+balance = 5.0
 
-[node name="Node2D" parent="." instance=ExtResource( 15 )]
-position = Vector2( 732, 4 )
+[node name="Node2D" parent="dianoche" instance=ExtResource( 15 )]
+position = Vector2( 779, 57 )
+script = ExtResource( 12 )
 
 [connection signal="item_selected" from="Canvas/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="Canvas/ItemList/Stop" to="ControlCommands" method="stop_timer"]
