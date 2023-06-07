@@ -25,11 +25,11 @@ func _ready():
 
 
 func walk_animation():
-	AnimationManager.animation_parameters(direction,[Vector2.LEFT,Vector2.RIGHT,Vector2.UP,Vector2.DOWN],["LeftWalk","RightWalk","UpWalk","DownWalk"],ani)
+	AnimationManager.animation_parameters(direction,{Vector2.LEFT:"LeftWalk",Vector2.RIGHT:"RightWalk",Vector2.UP:"UpWalk",Vector2.DOWN:"DownWalk"},ani)
 	sheep_detector.position = direction*speed/2
 
 func idle_animation():
-	AnimationManager.animation_parameters(direction,[Vector2.LEFT,Vector2.RIGHT,Vector2.UP,Vector2.DOWN],["LeftIdle","RightIdle","UpIdle","DownIdle"],ani)
+	AnimationManager.animation_parameters(direction,{Vector2.LEFT:"LeftIdle",Vector2.RIGHT:"RightIdle",Vector2.UP:"UpIdle",Vector2.DOWN:"DownIdle"},ani)
 	sheep_detector.position = direction*speed/2
 
 func start_move():

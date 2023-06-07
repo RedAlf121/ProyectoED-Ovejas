@@ -1,8 +1,5 @@
 class_name MainMenu extends Control
 
-
-
-
 export (PackedScene) onready  var level_selector
 
 func _ready():
