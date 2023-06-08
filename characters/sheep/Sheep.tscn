@@ -227,15 +227,17 @@ tracks/0/keys = {
 "update": 1,
 "values": [ ExtResource( 1 ) ]
 }
-tracks/1/type = "bezier"
+tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -395,7 +397,7 @@ tracks/4/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 9.75, 10 )
+extents = Vector2( 13, 10 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 46.5, 46.5 )

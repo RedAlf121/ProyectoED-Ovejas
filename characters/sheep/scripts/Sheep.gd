@@ -2,8 +2,9 @@ class_name Sheep extends KinematicBody2D
 
 signal run
 
+enum direction_cases {ARRIBA,ABAJO,IZQUIERDA,DERECHA}
 export(float) var speed
-export(Vector2) var direction
+export(direction_cases) var enum_direction
 onready var move_detector = $MoveDetector
 onready var sheep_detector = $SheepDetector
 onready var collision_shape_move_detector = $MoveDetector/CollisionShape2D
@@ -13,6 +14,7 @@ onready var stop = true
 onready var reverse = false
 onready var timer = $Timer
 onready var endzone = false#para que detecte la meta una unica vez debido a que la componente de move_detector se reutiliza
+var direction
 var next
 var previous
 onready var ani = $AnimationPlayer
@@ -21,6 +23,15 @@ var previous_rotation
 var tween_time = 0.37
 var path
 func _ready():
+	match(enum_direction):
+		direction_cases.ARRIBA:
+			direction = Vector2.UP
+		direction_cases.ABAJO:
+			direction = Vector2.DOWN
+		direction_cases.IZQUIERDA:
+			direction = Vector2.LEFT
+		direction_cases.DERECHA:
+			direction = Vector2.RIGHT
 	idle_animation()
 
 

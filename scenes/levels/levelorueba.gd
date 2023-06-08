@@ -53,7 +53,10 @@ func _on_Atras_pressed():
 
 
 func _on_Reset_pressed():
-	get_tree().change_scene(filename)
+	var root = self
+	while(!(root.get_parent() is Viewport)):
+		root = root.get_parent()
+	get_tree().change_scene(root.filename)
 
 
 func _on_CommandShower_item_selected(index):
