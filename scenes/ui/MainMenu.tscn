@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://images/icons/granjero.png" type="Texture" id=1]
 [ext_resource path="res://images/icons/salir.png" type="Texture" id=2]
 [ext_resource path="res://images/bg/IMG-20221027-WA0293.jpg" type="Texture" id=3]
+[ext_resource path="res://scenes/ui/LoadSources.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/Stabillo Medium.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://scenes/ui/Level_Selector.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/ui/NewGame.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/scripts/MainMenu.gd" type="Script" id=7]
 [ext_resource path="res://images/icons/oveja lateral.png" type="Texture" id=8]
 [ext_resource path="res://music/bg/Naruto - Afternoon of Konoha(MP3_128K).mp3" type="AudioStream" id=10]
@@ -60,6 +61,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 7 )
 level_selector = ExtResource( 6 )
+load_save = ExtResource( 4 )
 
 [node name="50F8342B04A7Cca6963C225310Da0305" type="Sprite" parent="."]
 position = Vector2( 400.5, 312.875 )
@@ -94,13 +96,23 @@ scale = Vector2( 0.134658, 0.183661 )
 texture = ExtResource( 8 )
 
 [node name="Load" type="Button" parent="."]
-margin_left = 308.0
-margin_top = 361.0
-margin_right = 445.0
-margin_bottom = 420.0
-rect_pivot_offset = Vector2( 40, -21 )
+margin_left = 272.0
+margin_top = 348.0
+margin_right = 502.0
+margin_bottom = 407.0
+rect_pivot_offset = Vector2( 29, 9 )
 custom_fonts/font = SubResource( 2 )
-text = "Jugar"
+text = "Nueva Partida"
+flat = true
+
+[node name="LoadSources" type="Button" parent="."]
+margin_left = 308.0
+margin_top = 398.0
+margin_right = 445.0
+margin_bottom = 457.0
+rect_pivot_offset = Vector2( 29, 9 )
+custom_fonts/font = SubResource( 2 )
+text = "Cargar"
 flat = true
 
 [node name="Exit" type="Button" parent="."]
@@ -115,9 +127,9 @@ flat = true
 
 [node name="Options" type="Button" parent="."]
 margin_left = 318.0
-margin_top = 413.0
+margin_top = 434.0
 margin_right = 443.0
-margin_bottom = 509.0
+margin_bottom = 530.0
 rect_pivot_offset = Vector2( 40, -21 )
 custom_fonts/font = SubResource( 10 )
 text = "Ajustes"
@@ -218,6 +230,7 @@ scale = Vector2( 0.0643128, 0.0708948 )
 texture = ExtResource( 8 )
 
 [connection signal="pressed" from="Load" to="." method="_load_pressed"]
+[connection signal="pressed" from="LoadSources" to="." method="_on_LoadSources_pressed"]
 [connection signal="pressed" from="Exit" to="." method="exit_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]

@@ -77,6 +77,9 @@ func _on_Sheep_run(sheep,final_position):
 func _on_ENDZONE_body_entered(body):
 	counter+=1
 	if counter == max_sheeps:
-		LoadSave.level_win()
+		var root = self
+		while(!(root.get_parent() is Viewport)):
+			root = root.get_parent()
+		LoadSave.level_win(root.filename)
 
 

@@ -98,6 +98,11 @@ _global_script_classes=[ {
 "class": "TestLevel",
 "language": "GDScript",
 "path": "res://scenes/levels/levelorueba.gd"
+}, {
+"base": "Node",
+"class": "Trie",
+"language": "GDScript",
+"path": "res://data structures/Tree/Trie.gd"
 } ]
 _global_script_class_icons={
 "DTS": "",
@@ -117,12 +122,13 @@ _global_script_class_icons={
 "MainMenu": "",
 "Queue": "",
 "Sheep": "",
-"TestLevel": ""
+"TestLevel": "",
+"Trie": ""
 }
 
 [application]
 
-config/name="ProyectoED-Ovejas"
+config/name="¿Donde están mis ovejas?"
 run/main_scene="res://scenes/ui/MainMenu.tscn"
 boot_splash/image="res://images/bg/Escena de la granja en la naturaleza con granero _ Vector Gratis.png"
 config/icon="res://images/icons/unlocked.png"

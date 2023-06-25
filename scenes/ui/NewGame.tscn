@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://images/icons/pngwing.com (6).png" type="Texture" id=1]
+[ext_resource path="res://scenes/scripts/NewGame.gd" type="Script" id=2]
+[ext_resource path="res://images/bg/level selector.jpg" type="Texture" id=3]
+[ext_resource path="res://fonts/Stabillo Medium.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/ui/Level_Selector.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=2]
+size = 72
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 4 )
+
+[node name="NewGame" type="Node2D"]
+script = ExtResource( 2 )
+main_menu = "res://scenes/ui/MainMenu.tscn"
+level_selector = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 400, 300 )
+current = true
+zoom = Vector2( 1.5, 1.1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 683.25, 507.75 )
+scale = Vector2( 1.56536, 1.46671 )
+texture = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -257, -152 )
+focus_next = NodePath("TextEdit")
+focus_mode = 2
+
+[node name="Button" type="Button" parent="Control"]
+margin_left = -174.0
+margin_top = -6.0
+margin_right = -87.0
+margin_bottom = 99.0
+focus_mode = 1
+enabled_focus_mode = 1
+icon = ExtResource( 1 )
+flat = true
+expand_icon = true
+
+[node name="Accept" type="Button" parent="Control"]
+margin_left = 287.0
+margin_top = 422.0
+margin_right = 489.0
+margin_bottom = 500.0
+rect_pivot_offset = Vector2( 40, -21 )
+focus_mode = 1
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 1
+text = "Aceptar"
+flat = true
+
+[node name="TextEdit" type="TextEdit" parent="Control"]
+margin_left = 213.0
+margin_top = 307.0
+margin_right = 576.0
+margin_bottom = 347.0
+custom_fonts/font = SubResource( 1 )
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/Accept" to="." method="_on_Accept_pressed"]
+[connection signal="visibility_changed" from="Control/TextEdit" to="." method="_on_TextEdit_visibility_changed"]
