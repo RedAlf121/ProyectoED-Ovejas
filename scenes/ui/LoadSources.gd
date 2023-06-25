@@ -25,10 +25,12 @@ func _load_pressed():
 
 
 func _on_Erase_pressed():
-	var string = item_list.get_item_text(item_list.get_selected_items()[0])
-	LoadSave.delete_saves(string)
-	text_edit.text = ""
-	item_list.remove_item(item_list.get_selected_items()[0])
+	var selected = item_list.get_selected_items()
+	var string = item_list.get_item_text(selected[0]) if(!selected.empty()) else ""
+	if string != "":
+		LoadSave.delete_saves(string)
+		text_edit.text = ""
+		item_list.remove_item(selected[0])
 	text_edit.grab_focus()
 
 
