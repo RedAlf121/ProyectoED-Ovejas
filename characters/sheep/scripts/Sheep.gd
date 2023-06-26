@@ -138,6 +138,7 @@ func follow_path():
 func _on_SheepDetector_body_entered(body):
 	if(body.is_in_group("sheep") and !reverse and body != self):
 		timer.stop()
+		timer.wait_time = 0.43
 		sheep_detector.monitoring = false
 		path = null
 		var it = body

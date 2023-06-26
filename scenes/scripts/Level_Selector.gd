@@ -2,9 +2,11 @@ class_name LevelSelector extends Control
 
 
 export(String, FILE) var main_menu
+onready var hello = $Label2
 
 
 func _ready():
+	hello.text = hello.text+LoadSave.actual_source
 	if(Singleton.mute == false):
 		$AudioStreamPlayer.play()
 	var container = find_container()

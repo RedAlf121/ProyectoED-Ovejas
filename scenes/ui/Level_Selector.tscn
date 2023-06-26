@@ -124,4 +124,12 @@ rotation = 0.261799
 scale = Vector2( 0.0874836, 0.0963588 )
 texture = ExtResource( 9 )
 
+[node name="Label2" type="Label" parent="."]
+margin_left = 539.0
+margin_top = 23.0
+margin_right = 972.0
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 1 )
+text = "Hola, "
+
 [connection signal="pressed" from="Button" to="." method="_on_level_selector_pressed"]

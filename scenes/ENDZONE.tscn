@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 249, 154.75 )
+extents = Vector2( 245, 148.5 )
 
 [node name="ENDZONE" type="Area2D" groups=["endzone"]]
 
