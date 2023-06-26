@@ -115,6 +115,7 @@ tween_time = 0.001
 
 [node name="Sheep" parent="." instance=ExtResource( 13 )]
 position = Vector2( 608, 672 )
+path_time = 0.62
 
 [node name="Sheep2" parent="." instance=ExtResource( 13 )]
 position = Vector2( 608, 480 )
@@ -126,6 +127,7 @@ position = Vector2( 544, 608 )
 position = Vector2( 638, 160 )
 
 [node name="dianoche" parent="." instance=ExtResource( 14 )]
+visible = false
 time = [ 9, 30, 0 ]
 balance = 5.0
 

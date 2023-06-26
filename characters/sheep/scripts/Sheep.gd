@@ -21,6 +21,7 @@ onready var ani = $AnimationPlayer
 
 var previous_rotation
 var tween_time = 0.37
+export(float) var path_time = 0.43
 var path
 func _ready():
 	match(enum_direction):
@@ -33,6 +34,7 @@ func _ready():
 		direction_cases.DERECHA:
 			direction = Vector2.RIGHT
 	idle_animation()
+	timer.wait_time = path_time
 
 
 func walk_animation():
@@ -114,7 +116,7 @@ func move_near():
 
 
 func follow_path():
-	var tween_time = 0.37
+	#var tween_time = 0.37
 	if(path!=null):
 		if(!path.empty()):
 			var i = path.pop_front()
